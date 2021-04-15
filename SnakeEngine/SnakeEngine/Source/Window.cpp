@@ -19,14 +19,14 @@ Window::~Window()
 {
 }
 
-void Window::CreateWindow(int width, int height, const char* title)
+void Window::CreateWindow(int w, int h, const char* title)
 {
 
 	if(!glfwInit())
 	{
 		std::cout << "failed to initialize glfw" << std::endl;
 	}
-	window = glfwCreateWindow(width, height, title, NULL, NULL);
+	window = glfwCreateWindow(w, h, title, NULL, NULL);
 	if(!window)
 	{
 		std::cout << " failed to create window" << std::endl;
@@ -35,8 +35,9 @@ void Window::CreateWindow(int width, int height, const char* title)
 	glfwMakeContextCurrent(window);
 	glewInit();
 
-
-	renderer = new Renderer();
+	width = w;
+	height = h;
+	renderer = new Renderer(width,height);
 	renderer->Start();
 	Start();
 

@@ -24,5 +24,8 @@ private:
 	GLFWwindow* window;
 	Game* game;
 	Renderer* renderer;
+
+	float width;
+	float height;
 	
 };
